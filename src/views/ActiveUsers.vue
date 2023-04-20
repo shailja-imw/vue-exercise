@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from 'vue'
+import { computed, reactive } from 'vue'
 
 // reactive state
 const userList = reactive([{ id: 1, name: 'larry', isActive: true },
@@ -13,12 +13,13 @@ const userList = reactive([{ id: 1, name: 'larry', isActive: true },
 ])
 
 
+
 </script>
     
 <template>
   <div class="container mt-5">
     <h3>Active users' table</h3>
-    <div class="table-responsive">
+    <div class="">
       <table class="table m-3">
         <thead class="table-light">
           <tr>
@@ -28,11 +29,11 @@ const userList = reactive([{ id: 1, name: 'larry', isActive: true },
             <th scope="col" class="h4">Status</th>
           </tr>
         </thead>
-        <tbody>
-          <tr v-for="(user, index) of userList" :key="index" :class="[user.isActive ? '' : 'd-none']">
-            <th scope="row">{{ user.isActive ? user.id : '' }}</th>
-            <td>{{ user.isActive ? user.name : '' }}</td>
-            <td>@{{ user.isActive ? user.name : '' }}</td>
+        <tbody v-for="(user, index) of userList" :key="index" >
+          <tr v-if="user.isActive">
+            <th scope="row">{{  user.id  }}</th>
+            <td>{{ user.name  }}</td>
+            <td>@{{  user.name  }}</td>
             <td>{{ user.isActive ? 'Active' : 'Deactive' }}</td>
           </tr>
         </tbody>
