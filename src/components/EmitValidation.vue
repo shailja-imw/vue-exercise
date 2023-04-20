@@ -10,8 +10,7 @@ import { ref } from "vue";
 const email = ref('');
 const password = ref('');
 const emit = defineEmits({
-    submitForm: ({email,password}) => {
-        console.log("email",email);
+    submitForm: (email,password) => {
         if(email && password){
             return true;
         }
@@ -22,7 +21,7 @@ const emit = defineEmits({
     }
 })
 function onSubmit(email,password){
-    emit('submitForm',{email,password});
+    emit('submitForm',email,password);
 }
 </script>
 
