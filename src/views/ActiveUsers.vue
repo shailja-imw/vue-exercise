@@ -12,8 +12,6 @@ const userList = reactive([{ id: 1, name: 'larry', isActive: true },
 { id: 8, name: 'loe', isActive: false },
 ])
 
-
-
 </script>
     
 <template>
