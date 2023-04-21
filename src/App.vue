@@ -20,19 +20,7 @@ const profile = {
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse order-sm-2" id="navbarSupportedContent">
-        <Header>
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <RouterLink class="nav-link active" aria-current="page" to="/">Home</RouterLink>
-            </li>
-            <li class="nav-item">
-              <RouterLink class="nav-link" to='/active-users'>Active Users</RouterLink>
-            </li>
-            <li class="nav-item">
-              <RouterLink class="nav-link" to='/login' tabindex="-1" aria-disabled="true">Login</RouterLink>
-            </li>
-          </ul>
-        </Header>
+        <Header></Header>
         <form class="d-flex justify-content-center align-items-center cursor-pointer order-sm-1">
           <Profile v-bind:profile="profile"></Profile>
         </form>
