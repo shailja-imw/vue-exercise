@@ -1,70 +1,54 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+
+import Header from './components/Header.vue';
+import Profile from './components/Profile.vue';
+import userAvtar from './assets/Images/man.png'
+import Logo from './assets/Images/logo.png'
+const profile = {
+  imgUrl: userAvtar,
+  name: 'Marry Jack'
+}
 </script>
 
 <template>
-  <div class="d-flex container">
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Login</RouterLink>
-        <RouterLink to="/active-users">Display Active Users</RouterLink>
-      </nav>
+  <nav class="navbar navbar-expand-lg navbar-ligt bg-light">
+    <div class="container-fluid">
+      <img :src='Logo' class="img-fluid logo mx-4" />
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse order-sm-2" id="navbarSupportedContent">
+        <Header>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <RouterLink class="nav-link active" aria-current="page" to="/">Home</RouterLink>
+            </li>
+            <li class="nav-item">
+              <RouterLink class="nav-link" to='/active-users'>Active Users</RouterLink>
+            </li>
+            <li class="nav-item">
+              <RouterLink class="nav-link" to='/login' tabindex="-1" aria-disabled="true">Login</RouterLink>
+            </li>
+          </ul>
+        </Header>
+        <form class="d-flex justify-content-center align-items-center cursor-pointer order-sm-1">
+          <Profile v-bind:profile="profile"></Profile>
+        </form>
+      </div>
     </div>
-  </div>
+  </nav>
   <RouterView />
 </template>
 
-<style scoped>
-nav {
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+<style>
+.logo {
+  height: 74px;
 }
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+@media screen and (max-width:767px) {
+  .logo{
+    height: 40px;
   }
 }
 </style>
