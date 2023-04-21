@@ -1,10 +1,13 @@
 <script setup>
 import { ref } from 'vue';
 import EmitValidation from '../components/EmitValidation.vue';
+// import Demo from '../components/Demo.vue'
 const isLoggedIn = ref(false);
 
 const submitForm = (email, password) => {
+    if(email !== '' && password !== ''){
     alert('Welcome ' + email + '\nYour Password is ' + password);
+    }
 }
 
 </script>
@@ -12,6 +15,7 @@ const submitForm = (email, password) => {
 
 <template>
     <div class="container mt-5">
+        <!-- <Demo /> -->
         <div class="alert alert-success mb-2" role="alert">
             <h4 class="alert-heading">{{ isLoggedIn ? "Well done!" : 'See You Soon' }}</h4>
             <p>{{ isLoggedIn ? 'Hooray !! You are now our member' : "we're Sorry to See you Go" }}</p>
