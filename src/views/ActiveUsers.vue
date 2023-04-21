@@ -12,12 +12,15 @@ const userList = reactive([{ id: 1, name: 'larry', isActive: true },
 { id: 8, name: 'loe', isActive: false },
 ])
 
+const activeUsers = computed(()=>{
+  return  userList.filter((user) => user.isActive === true);
+})
 </script>
     
 <template>
   <div class="container mt-5">
     <h3>Active users' table</h3>
-    <div class="">
+    <div>
       <table class="table m-3">
         <thead class="table-light">
           <tr>
@@ -27,8 +30,8 @@ const userList = reactive([{ id: 1, name: 'larry', isActive: true },
             <th scope="col" class="h4">Status</th>
           </tr>
         </thead>
-        <tbody v-for="(user, index) of userList" :key="index" >
-          <tr v-if="user.isActive">
+        <tbody>
+          <tr v-for="(user, index) of activeUsers" :key="index">
             <th scope="row">{{  user.id  }}</th>
             <td>{{ user.name  }}</td>
             <td>@{{  user.name  }}</td>
